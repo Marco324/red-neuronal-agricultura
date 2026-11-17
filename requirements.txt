@@ -1,0 +1,18 @@
+# Python 3.12 requerido (TensorFlow 2.21 no soporta versiones más nuevas de forma garantizada)
+# Instalación: pip install -r requirements.txt
+
+# Red neuronal
+tensorflow==2.21.0
+keras==3.15.1
+
+# Datos y preprocesamiento
+numpy==2.5.3
+pandas==3.0.6
+scikit-learn==1.9.1
+
+# Visualización
+matplotlib==3.11.2
+seaborn==0.13.2
+
+# Kernel para ejecutar el notebook (PyCharm / VS Code / Jupyter)
+ipykernel==7.4.0

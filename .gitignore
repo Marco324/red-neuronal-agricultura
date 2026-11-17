@@ -1,0 +1,44 @@
+# Entornos virtuales
+.venv/
+venv/
+env/
+ENV/
+
+# IDEs / editores
+.idea/
+.vscode/
+*.swp
+
+# Claude Code (configuración local)
+.claude/
+CLAUDE.local.md
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Modelos y artefactos generados
+*.h5
+*.keras
+*.pkl
+*.joblib
+saved_model/
+modelos/
+checkpoints/
+logs/
+
+# Salidas temporales
+tmp/
+temp/
+outputs/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini

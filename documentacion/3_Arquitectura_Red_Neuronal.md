@@ -31,4 +31,8 @@ La arquitectura está diseñada específicamente para resolver un problema de **
 - **Métricas (`accuracy`):** Permite visualizar el porcentaje de aciertos correctos de la red durante cada época de entrenamiento.
 
 ## Entrenamiento
-El modelo se entrena durante múltiples iteraciones (`epochs`, típicamente entre 50 y 100) en lotes pequeños (`batch_size = 32`). Durante el proceso, se evalúa constantemente contra los datos de prueba (`val_accuracy`) para garantizar que la red esté generalizando los patrones biológicos y no memorizando.
+El modelo se entrena en lotes pequeños (`batch_size = 32`) con un máximo de 200 épocas. Al final de cada época se evalúa contra el conjunto de **validación** (`val_loss`, `val_accuracy`) para comprobar que la red esté generalizando los patrones biológicos y no memorizando.
+
+Se usa el callback **`EarlyStopping`** (`patience=15`, `restore_best_weights=True`): si la pérdida de validación no mejora durante 15 épocas seguidas, el entrenamiento se detiene y se recuperan los mejores pesos encontrados. Así no hace falta adivinar el número de épocas; en la ejecución de referencia se detuvo en la época 136.
+
+El conjunto de **prueba** no participa en el entrenamiento: solo se usa al final para la evaluación.
