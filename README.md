@@ -42,11 +42,35 @@ pip install -r requirements.txt
    - macOS/Linux: `.venv/bin/python`
 3. Ejecuta todas las celdas en orden. La última celda usa la función `recomendar_cultivo(N, P, K, temperatura, humedad, ph, lluvia)` para hacer una predicción.
 
+## Interfaz de escritorio
+
+`interfaz.py` es una ventana de escritorio (Tkinter, incluido en Python) que usa la red ya
+entrenada: se escriben los 7 datos del terreno y muestra los 3 cultivos más probables con su
+probabilidad. No entrena nada, solo consume el modelo.
+
+Necesita que el notebook se haya corrido completo al menos una vez, porque la última celda
+(«Guardar el modelo para la interfaz») genera la carpeta `modelo_entrenado/` con:
+
+- `modelo.keras` — la red entrenada.
+- `preprocesadores.pkl` — el `StandardScaler`, el `LabelEncoder` y los rangos del dataset.
+
+Esos archivos están en `.gitignore`: no se suben al repositorio, cada quien los genera corriendo
+el notebook. Después, desde la carpeta del proyecto y con el entorno activado:
+
+```bat
+python interfaz.py
+```
+
+La ventana trae valores de ejemplo en el menú *Ejemplo* y avisa cuando un dato queda fuera del
+rango que la red vio al entrenar, porque ahí la predicción no es confiable aunque muestre una
+probabilidad alta.
+
 ## Estructura
 
 ```
 ├── Crop_recommendation.csv   # Dataset
 ├── redNeuronal.ipynb         # Análisis, entrenamiento y predicción
+├── interfaz.py               # Interfaz de escritorio (usa el modelo entrenado)
 ├── requirements.txt          # Dependencias con versiones fijadas
 └── documentacion/
     ├── 1_Variables_del_Dataset.md
